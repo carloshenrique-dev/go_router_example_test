@@ -1,9 +1,12 @@
 import 'package:get_it/get_it.dart';
-
-import '../modules/register/cubit/register_cubit.dart';
+import 'package:go_router_example_test/modules/dashboard/cubit/dashboard_cubit.dart';
+import 'package:health/health.dart';
 
 final getIt = GetIt.instance;
 
 setUpProviders() {
-  getIt.registerLazySingleton<RegisterCubit>(() => RegisterCubit());
+  getIt.registerLazySingleton<HealthFactory>(() => HealthFactory());
+  getIt.registerLazySingleton<DashboardCubit>(
+    () => DashboardCubit(healthFactory: getIt<HealthFactory>()),
+  );
 }
