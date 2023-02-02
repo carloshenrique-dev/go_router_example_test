@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:go_router_example_test/modules/dashboard/register.dart';
+import 'package:go_router_example_test/modules/dashboard/dashboard.dart';
 import 'package:go_router_example_test/modules/not_found/not_found_page.dart';
 
 enum AppRoutes { home, register }

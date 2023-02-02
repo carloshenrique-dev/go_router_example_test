@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router_example_test/modules/dashboard/widgets/simple_card_widget.dart';
 import 'package:go_router_example_test/services/dependency_injection.dart';
 
 import 'cubit/dashboard_cubit.dart';
@@ -16,14 +17,24 @@ class DashboardPage extends StatelessWidget {
       body: BlocBuilder<DashboardCubit, DashboardState>(
         bloc: getIt<DashboardCubit>(),
         builder: (context, state) {
-          print(state.data);
-          return ListView.separated(
+          return GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisSpacing: 15,
+              mainAxisSpacing: 15,
+              crossAxisCount: 2,
+              childAspectRatio: 1.5,
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             itemCount: state.data.length,
-            separatorBuilder: (context, index) {
+            /*separatorBuilder: (context, index) {
               return const Divider();
-            },
+            },*/
             itemBuilder: (context, index) {
-              return Column(
+              return SimpleCardWidget(
+                value: '${state.data[index].value}',
+                type: state.data[index].typeString,
+              );
+              /*return Column(
                 children: [
                   Text(
                     state.data[index].sourceName,
@@ -41,7 +52,7 @@ class DashboardPage extends StatelessWidget {
                     '${state.data[index].value}',
                   ),
                 ],
-              );
+              );*/
             },
           );
         },
