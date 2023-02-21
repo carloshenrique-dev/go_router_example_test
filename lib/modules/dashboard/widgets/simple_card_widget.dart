@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class SimpleCardWidget extends StatelessWidget {
   final String value;
   final String type;
+  final String date;
 
   const SimpleCardWidget({
     super.key,
     required this.value,
     required this.type,
+    required this.date,
   });
 
   @override
@@ -44,7 +46,7 @@ class SimpleCardWidget extends StatelessWidget {
         children: [
           Expanded(
             child: Text(
-              type,
+              date,
               style: const TextStyle(
                 fontSize: 16,
                 color: Colors.black,
@@ -55,6 +57,19 @@ class SimpleCardWidget extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
+          /*Expanded(
+            child: Text(
+              type,
+              style: const TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),*/
           Expanded(
             child: Text.rich(
               TextSpan(

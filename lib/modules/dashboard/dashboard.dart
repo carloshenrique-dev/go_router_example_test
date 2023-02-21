@@ -33,6 +33,7 @@ class DashboardPage extends StatelessWidget {
               return SimpleCardWidget(
                 value: '${state.data[index].value}',
                 type: state.data[index].typeString,
+                date: state.data[index].dateFrom.toString(),
               );
               /*return Column(
                 children: [
